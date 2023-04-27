@@ -1,30 +1,29 @@
-
 const mongoose = require("mongoose");
 
 const orderSchema = mongoose.Schema(
   {
-    fname: { type: "String", required: true },
-    lname: { type: "String", required: true },
-    addressLine1: { type: "String", require: true },
-    addressLine2: { type: "String", require: true },
-    city: { type: "String", require: true },
-    country: { type: "String", require: true },
-    zip: { type: "String", require: true },
-    quantity: { type: "String", require: true },
-    productId: { type: "String", require: true },
-    shopId: { type: "String", require: true },
-    customerId: { type: "String", require: true },
-    deliverMethod: { type: "String", require: true },
-    unitPrice: { type: "String", require: true },
-    total: { type: "String", require: true },
-    title: { type: "String", require: true },
-    status: { type: "String", default: "Pending" },
-    pic: {
-      type: "String",
-      require: true,
-      default:
-        "https://res.cloudinary.com/cake-lounge/image/upload/v1653393914/icons8-product-100_zr2jfl.png",
+    checkoutDetails: {
+      addressLine1: { type: "String", required: true },
+      addressLine2: { type: "String", required: true },
+      city: { type: "String", required: true },
+      country: { type: "String", required: true },
+      customerId: { type: "String", required: true },
+      deliverCost: { type: "String", required: true },
+      deliverMethod: { type: "String", required: true },
+      fname: { type: "String", required: true },
+      lname: { type: "String", required: true },
+      state: { type: "String", required: true },
+      zip: { type: "String", required: true },
     },
+    customerId: { type: "String", required: true },
+    productId: { type: "String", default: "none" },
+    pic: { type: "String", required: true },
+    price: { type: "String", required: true },
+    productTitle: { type: "String", required: true },
+    quantity: { type: "String", required: true },
+    orderTotal: { type: "Number", required: true },
+    orderStatus: { type: "String", default: "Pending" },
+    shopId: { type: "String", required: true },
   },
   {
     timestapms: true,
