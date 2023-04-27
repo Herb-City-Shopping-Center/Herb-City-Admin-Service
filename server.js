@@ -4,17 +4,14 @@ const dotenv = require("dotenv");
 const cors = require("cors");
 const app = express();
 require("dotenv").config({ path: "./config.env" });
-const shopRoutes = require("./routes/shopRoutes");
-const checkOutRoutes = require("./routes/checkOutRoutes");
-const productRoutes = require("./routes/productRoutes");
-const userRoutes = require("./routes/userRoutes");
+const adminRoutes = require("./routes/adminRoutes");
 
 const connectDB = require("./DB/db");
 const { errorHandler, notFound } = require("./middleware/errorMiddleware");
 dotenv.config();
 connectDB();
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5005;
 
 app.use(cors());
 app.use(express.json());
@@ -32,10 +29,8 @@ if (server) {
   console.log("Success".green.bold);
 }
 
-app.use("/api/shop", shopRoutes);
-app.use("/api/product", productRoutes);
-app.use("/api/user", userRoutes);
-app.use("/payment", checkOutRoutes);
+app.use("/api/admin", adminRoutes);
+
 
 app.use(errorHandler);
 app.use(notFound);
