@@ -11,7 +11,7 @@ const { errorHandler, notFound } = require("./middleware/errorMiddleware");
 dotenv.config();
 connectDB();
 
-const PORT = process.env.PORT || 5005;
+const PORT = process.env.PORT || 7000;
 
 app.use(cors());
 app.use(express.json());
